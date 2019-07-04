@@ -1,0 +1,23 @@
+{
+  "name": "minimal-choice",
+  "version": "0.0.1",
+  "description": "A minimal javascript browser library for short multiple-choice questions",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "rollup": "rollup index.js --format iife --name \"SimpleQuiz\" --file ./dist/simplequiz.js",
+    "compile": "babel --presets env ./dist/simplequiz.js --out-file simplequiz.es5.js",
+    "uglify": "uglifyjs --compress --mangle --output ./dist/simplequiz.min.js -- ./dist/simplequiz.es5.js",
+    "bundle": "npm run rollup",
+    "prepack": "npm run bundle",
+    "pack": "npm run compile && npm run uglify"
+  },
+  "author": "Alexander Bazo <alexanderbazo@googlemail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-preset-env": "^1.7.0"
+  }
+}
